@@ -247,29 +247,6 @@ If ShopDeck says "Yes, build this," here's the roadmap:
 
 ---
 
-## How to Use This as a Pitch
-
-1. **Run it locally** — `npm run dev` and walk through yourself
-2. **Deploy to Vercel** — Share live URL with founder
-3. **Send outreach** — "Your RTO blog post nails the problem. I built a working demo of a system that prevents returns before they happen. [link]. Can we grab 15 mins?"
-4. **Be ready to discuss:**
-   - Why predictive > reactive (everyone can show RTOs; preventing them is hard)
-   - Your unfair advantage (ML expertise, prior fraud/churn prevention work translates directly)
-   - Timeline (6-8 weeks for 1 senior ML engineer)
-   - Impact ($2-4M ARR uplift from better retention alone)
-
----
-
-## Brand Colors
-
-The demo uses ShopDeck's brand identity:
-- **Primary:** `sd-blue` (#3b82f6), `sd-cyan` (#06b6d4)
-- **Background:** `sd-dark` (#0f172a), `sd-darker` (#0a0f1f)
-- **Status:** `risk-green` (#10b981), `risk-yellow` (#f59e0b), `risk-red` (#ef4444)
-
-All defined in `tailwind.config.js`.
-
----
 
 ## Success Criteria
 
@@ -295,11 +272,5 @@ If built and deployed at ShopDeck:
 | **Annual ARR impact** (from churn reduction alone) | — | — | **₹2.8-4.2M** |
 
 ---
-
-## Contact & Questions
-
-**Built by:** Udatta Chowdhury  
-**Built for:** ShopDeck / Abhishek Hazarika (Head of Product)  
-**Goal:** Production-ready predictive RTO system in 6-8 weeks with real data + ML integration
 
 For architecture details, see `CLAUDE.md`.
