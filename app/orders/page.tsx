@@ -103,7 +103,7 @@ export default function OrdersPage() {
                 <td className="px-6 py-3 text-sm text-[#f1f5f9] font-mono">{order.id}</td>
                 <td className="px-6 py-3 text-sm text-[#cbd5e1]">{order.seller_name}</td>
                 <td className="px-6 py-3 text-sm text-[#cbd5e1]">{order.product_name}</td>
-                <td className="px-6 py-3 text-sm text-[#f1f5f9]">Rs {order.price.toLocaleString()}</td>
+                <td className="px-6 py-3 text-sm text-[#f1f5f9] whitespace-nowrap">₹{order.price.toLocaleString()}</td>
                 <td className="px-6 py-3 text-sm">
                   <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                     order.return_risk_score < 30 
