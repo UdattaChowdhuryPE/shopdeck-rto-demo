@@ -1,24 +1,24 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { getMockRules } from '@/data/fixtures'
+import { getMockRules, Rule } from '@/data/fixtures'
 
 export default function RulesPage() {
   const mockRules = useMemo(() => getMockRules(), [])
-  const [rules, setRules] = useState(mockRules)
-  const [editingRule, setEditingRule] = useState(null)
-  const [editThreshold, setEditThreshold] = useState(0)
+  const [rules, setRules] = useState<Rule[]>(mockRules)
+  const [editingRule, setEditingRule] = useState<string | null>(null)
+  const [editThreshold, setEditThreshold] = useState<number>(0)
 
-  const toggleRule = (ruleId) => {
+  const toggleRule = (ruleId: string): void => {
     setRules(rules.map(r => r.id === ruleId ? { ...r, enabled: !r.enabled } : r))
   }
 
-  const startEdit = (ruleId, currentThreshold) => {
+  const startEdit = (ruleId: string, currentThreshold: number): void => {
     setEditingRule(ruleId)
     setEditThreshold(currentThreshold)
   }
 
-  const saveEdit = (ruleId) => {
+  const saveEdit = (ruleId: string): void => {
     setRules(rules.map(r => r.id === ruleId ? { ...r, threshold: editThreshold } : r))
     setEditingRule(null)
   }
@@ -37,7 +37,6 @@ export default function RulesPage() {
                   checked={rule.enabled}
                   onChange={() => toggleRule(rule.id)}
                   className="w-5 h-5 rounded border-sd-tertiary accent-sd-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-sd-blue focus-visible:outline-offset-2"
-                  aria-label={`Toggle ${rule.name}`}
                 />
                 <div>
                   <h3 className="text-lg font-semibold text-white">{rule.name}</h3>
