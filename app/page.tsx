@@ -83,6 +83,7 @@ export default function Dashboard() {
                   { name: 'Medium Risk', value: riskStats[1], fill: '#f59e0b' },
                   { name: 'High Risk', value: riskStats[2], fill: '#ef4444' },
                 ]}
+                dataKey="value"
                 cx="50%"
                 cy="50%"
                 labelLine={false}
