@@ -1,7 +1,7 @@
 'use client'
 
 import './globals.css'
-import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 
 export default function RootLayout({
@@ -9,7 +9,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const [currentPage, setCurrentPage] = useState('dashboard')
+  const pathname = usePathname()
+  const currentPage = pathname === '/' ? 'dashboard' : pathname.split('/')[1]
 
   return (
     <html lang="en">
@@ -23,28 +24,24 @@ export default function RootLayout({
             <nav className="space-y-2">
               <Link
                 href="/"
-                onClick={() => setCurrentPage('dashboard')}
                 className={currentPage === 'dashboard' ? 'block px-4 py-3 rounded-lg bg-sd-blue text-white font-medium transition-colors border-l-4 border-sd-cyan' : 'block px-4 py-3 rounded-lg text-[#cbd5e1] hover:text-[#f1f5f9] hover:bg-sd-secondary transition-colors'}
               >
                 Dashboard
               </Link>
               <Link
                 href="/orders"
-                onClick={() => setCurrentPage('orders')}
                 className={currentPage === 'orders' ? 'block px-4 py-3 rounded-lg bg-sd-blue text-white font-medium transition-colors border-l-4 border-sd-cyan' : 'block px-4 py-3 rounded-lg text-[#cbd5e1] hover:text-[#f1f5f9] hover:bg-sd-secondary transition-colors'}
               >
                 Orders
               </Link>
               <Link
                 href="/rules"
-                onClick={() => setCurrentPage('rules')}
                 className={currentPage === 'rules' ? 'block px-4 py-3 rounded-lg bg-sd-blue text-white font-medium transition-colors border-l-4 border-sd-cyan' : 'block px-4 py-3 rounded-lg text-[#cbd5e1] hover:text-[#f1f5f9] hover:bg-sd-secondary transition-colors'}
               >
                 Rules
               </Link>
               <Link
                 href="/analytics"
-                onClick={() => setCurrentPage('analytics')}
                 className={currentPage === 'analytics' ? 'block px-4 py-3 rounded-lg bg-sd-blue text-white font-medium transition-colors border-l-4 border-sd-cyan' : 'block px-4 py-3 rounded-lg text-[#cbd5e1] hover:text-[#f1f5f9] hover:bg-sd-secondary transition-colors'}
               >
                 Analytics
