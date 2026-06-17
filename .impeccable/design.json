@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-17T16:06:34Z",
+  "title": "Design System: ShopDeck Predictive RTO System",
+  "extensions": {
+    "colorMeta": {
+      "dark-base": {
+        "role": "neutral",
+        "displayName": "Deep Navy",
+        "canonical": "#0f172a",
+        "tonalRamp": ["#0a0f1f", "#0f172a", "#1e293b", "#334155", "#475569", "#64748b", "#94a3b8", "#cbd5e1"]
+      },
+      "accent-cyan": {
+        "role": "primary",
+        "displayName": "Cyan Electric",
+        "canonical": "#06b6d4",
+        "tonalRamp": ["#004f63", "#036b7f", "#0891b2", "#06b6d4", "#22d3ee", "#67e8f9", "#a5f3fc", "#cffafe"]
+      },
+      "accent-blue": {
+        "role": "secondary",
+        "displayName": "Blue Confident",
+        "canonical": "#3b82f6",
+        "tonalRamp": ["#1e3a8a", "#1e40af", "#2563eb", "#3b82f6", "#60a5fa", "#93c5fd", "#bfdbfe", "#dbeafe"]
+      },
+      "status-low": {
+        "role": "semantic",
+        "displayName": "Risk-Low Green",
+        "canonical": "#10b981",
+        "tonalRamp": ["#064e3b", "#065f46", "#047857", "#059669", "#10b981", "#34d399", "#6ee7b7", "#a7f3d0"]
+      },
+      "status-medium": {
+        "role": "semantic",
+        "displayName": "Risk-Medium Yellow",
+        "canonical": "#f59e0b",
+        "tonalRamp": ["#78350f", "#92400e", "#b45309", "#d97706", "#f59e0b", "#fbbf24", "#fcd34d", "#fef3c7"]
+      },
+      "status-high": {
+        "role": "semantic",
+        "displayName": "Risk-High Red",
+        "canonical": "#ef4444",
+        "tonalRamp": ["#7f1d1d", "#991b1b", "#dc2626", "#ef4444", "#f87171", "#fca5a5", "#fecaca", "#fee2e2"]
+      },
+      "text-primary": {
+        "role": "neutral",
+        "displayName": "Light Slate",
+        "canonical": "#f1f5f9",
+        "tonalRamp": ["#0f172a", "#1e293b", "#334155", "#64748b", "#94a3b8", "#cbd5e1", "#e2e8f0", "#f1f5f9"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page titles and hero metrics. Reserved for ≤1 per page."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles and subsection headings. Establishes clear information hierarchy."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Descriptive text, data rows, explanatory copy. Default everywhere. Max line length 65–75ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Form labels, button text, captions, risk scores. Subtle tracking reinforces precision."
+      }
+    },
+    "shadows": [
+      {
+        "name": "hover-glow",
+        "value": "0 8px 24px rgba(6, 182, 212, 0.15)",
+        "purpose": "Applied to buttons, cards, inputs on hover. Cyan glow signals responsiveness without overwhelming."
+      },
+      {
+        "name": "focus-ring",
+        "value": "outline: 2px solid #3b82f6; outline-offset: 2px",
+        "purpose": "Keyboard focus on all interactive elements. Blue ring ensures WCAG AA keyboard navigation support."
+      }
+    ],
+    "motion": [
+      {
+        "name": "transition-interactive",
+        "value": "all 0.2s ease-out",
+        "purpose": "State changes (hover, focus, toggle). Snappy, responsive, no easing overshoot."
+      },
+      {
+        "name": "transition-color",
+        "value": "color 0.2s ease-out",
+        "purpose": "Text and color-only changes. Decoupled from layout transitions."
+      }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "0px" },
+      { "name": "tablet", "value": "768px" },
+      { "name": "desktop", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "High-contrast, full-strength accent. Used for primary CTAs (Apply Intervention, Save Rules).",
+      "html": "<button class=\"ds-btn-primary\">APPLY INTERVENTION</button>",
+      "css": ".ds-btn-primary { background: #06b6d4; color: #000; padding: 12px 24px; border-radius: 4px; border: none; font-weight: 500; font-size: 0.875rem; letter-spacing: 0.02em; cursor: pointer; transition: all 0.2s ease-out; } .ds-btn-primary:hover { background: #3b82f6; color: #f1f5f9; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(6, 182, 212, 0.15); } .ds-btn-primary:focus-visible { outline: 2px solid #3b82f6; outline-offset: 2px; } .ds-btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Lower visual weight. Used for supporting actions (Cancel, Dismiss).",
+      "html": "<button class=\"ds-btn-secondary\">CANCEL</button>",
+      "css": ".ds-btn-secondary { background: #334155; color: #f1f5f9; padding: 12px 24px; border-radius: 4px; border: none; font-weight: 500; font-size: 0.875rem; letter-spacing: 0.02em; cursor: pointer; transition: all 0.2s ease-out; } .ds-btn-secondary:hover { background: #1e293b; transform: translateY(-1px); } .ds-btn-secondary:focus-visible { outline: 2px solid #3b82f6; outline-offset: 2px; } .ds-btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Dark secondary background with flat-by-default. Cyan glow on hover.",
+      "html": "<div class=\"ds-card\"><h3>Orders at Risk</h3><p>247 orders flagged for intervention</p></div>",
+      "css": ".ds-card { background: #1e293b; border-radius: 8px; padding: 16px; color: #f1f5f9; transition: all 0.2s ease-out; } .ds-card h3 { margin: 0 0 8px 0; font-size: 1.5rem; font-weight: 600; line-height: 1.3; } .ds-card p { margin: 0; font-size: 0.9375rem; font-weight: 400; line-height: 1.5; color: #cbd5e1; } .ds-card:hover { box-shadow: 0 8px 24px rgba(6, 182, 212, 0.15); }"
+    },
+    {
+      "name": "Input Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Dark tertiary background, light text. Blue outline on focus. No border at rest.",
+      "html": "<input type=\"text\" class=\"ds-input\" placeholder=\"Search orders...\" />",
+      "css": ".ds-input { background: #334155; color: #f1f5f9; padding: 8px 12px; border-radius: 4px; border: none; font-size: 0.9375rem; font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; transition: all 0.2s ease-out; } .ds-input::placeholder { color: #94a3b8; } .ds-input:focus { outline: 2px solid #3b82f6; outline-offset: 2px; background: #475569; } .ds-input:disabled { opacity: 0.5; cursor: not-allowed; }"
+    },
+    {
+      "name": "Risk Score Badge",
+      "kind": "custom",
+      "refersTo": "risk-badge",
+      "description": "Three-signal risk display: color circle + icon + numeric score. High risk (red) example shown.",
+      "html": "<div class=\"ds-risk-badge ds-risk-badge--high\"><span class=\"ds-risk-circle\"></span><span class=\"ds-risk-score\">78</span></div>",
+      "css": ".ds-risk-badge { display: flex; align-items: center; gap: 8px; padding: 4px 8px; border-radius: 4px; background: rgba(239, 68, 68, 0.1); font-weight: 500; font-size: 0.875rem; } .ds-risk-circle { display: inline-block; width: 8px; height: 8px; border-radius: 50%; } .ds-risk-badge--high .ds-risk-circle { background: #ef4444; } .ds-risk-badge--high .ds-risk-score { color: #ef4444; } .ds-risk-badge--medium .ds-risk-circle { background: #f59e0b; } .ds-risk-badge--medium .ds-risk-score { color: #f59e0b; } .ds-risk-badge--low .ds-risk-circle { background: #10b981; } .ds-risk-badge--low .ds-risk-score { color: #10b981; } .ds-risk-score { color: #f1f5f9; }"
+    },
+    {
+      "name": "Data Table Row",
+      "kind": "custom",
+      "refersTo": "table-row",
+      "description": "No grid lines. Whitespace creates separation. Hover applies cyan glow. Risk score column uses three-signal format.",
+      "html": "<tr class=\"ds-table-row\"><td class=\"ds-cell\">ORD-4521</td><td class=\"ds-cell\">Fashion</td><td class=\"ds-cell\"><div class=\"ds-risk-badge ds-risk-badge--high\"><span class=\"ds-risk-circle\"></span><span class=\"ds-risk-score\">78</span></div></td></tr>",
+      "css": ".ds-table-row { background: #1e293b; border-spacing: 0; transition: all 0.2s ease-out; } .ds-table-row:hover { box-shadow: 0 8px 24px rgba(6, 182, 212, 0.15); } .ds-cell { padding: 12px 16px; color: #f1f5f9; font-size: 0.9375rem; font-weight: 400; line-height: 1.5; border-bottom: 1px solid #334155; } .ds-cell:first-child { border-radius: 4px 0 0 4px; } .ds-cell:last-child { border-radius: 0 4px 4px 0; text-align: right; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Command Center",
+    "overview": "This system is a dark, technical command center for D2C sellers managing their return risk. The interface prioritizes data clarity and decisive action over decoration. Confidence comes from precision: every element earns its place, every color has a job, every interaction is instant and responsive. The dark theme signals expertise and authority. The cyan-blue palette carries electric energy—modern, tech-forward, and commanding. Sellers open this tool knowing their margins are at stake and trusting that ShopDeck's data and recommendations are bulletproof.",
+    "keyCharacteristics": [
+      "Dark, technical, mission-critical aesthetic",
+      "Cyan-blue palette: electric, modern, commanding",
+      "Data is the hero; UI is transparent and minimal",
+      "Interactions are snappy and responsive, not decorative",
+      "Risk levels use color + icon + number (never color alone)",
+      "High contrast throughout for expert precision and accessibility"
+    ],
+    "rules": [
+      { "name": "The Electric Energy Rule", "body": "Cyan and blue together signal that this tool is modern and serious. They are never diluted with transparency or used as background tints; they appear as full-strength accents on buttons, links, and focus states. Their rarity (≤10% of the screen) is the point.", "section": "colors" },
+      { "name": "The Three-Signal Rule", "body": "Risk levels are always communicated by color + icon + numeric score. Color alone is insufficient. A user with color blindness must instantly understand the risk by reading the number and identifying the icon.", "section": "colors" },
+      { "name": "The Contrast Rule", "body": "Body text on dark backgrounds must hit 4.5:1 contrast (WCAG AA minimum). Light Slate achieves 8.5:1 against Deep Navy, providing margin for smaller type and placeholder text.", "section": "colors" },
+      { "name": "The No-Personality Rule", "body": "The type is system default throughout. No custom fonts, no serif, no script. Sellers don't come for typography; they come for margin recovery data.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "No persistent shadows. Cards and surfaces have no drop shadows at rest. Shadows only on hover or focus. This discipline keeps the interface precise and data-focused. Depth is implied by position and color, not by shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use cyan for primary CTAs (Apply Intervention, Save). High contrast, commanding presence.",
+      "Do pair color + icon + number for risk levels. Never rely on color alone for status communication.",
+      "Do use label-weight (500) for all form labels, button text, and risk scores. Subtle tracking signals precision.",
+      "Do keep card shadows flat at rest and apply cyan glow only on hover.",
+      "Do use light slate (#f1f5f9) for all body text and ensure ≥4.5:1 contrast.",
+      "Do stack buttons vertically if space is tight; never wrap buttons in one row.",
+      "Do test every interactive element for keyboard focus (blue outline ring)."
+    ],
+    "donts": [
+      "Don't use generic SaaS dashboard patterns: heavy cards with drop shadows, rounded-corner decoration, pastel backgrounds.",
+      "Don't use emoji, playful copy, or warm tones. Sellers are stressed about returns; the tool should feel serious and expert.",
+      "Don't use border-left stripes or gradient text. Clarity over decoration.",
+      "Don't apply shadows to surfaces at rest. Shadows only on hover/focus.",
+      "Don't mix fonts or use custom web fonts. System sans-serif throughout.",
+      "Don't use purple as a primary accent; reserve it for rare emphasis or special states.",
+      "Don't rely on color alone for status. Always pair with icon and numeric value.",
+      "Don't set opacity on text to indicate lower importance. Use a darker gray or different size instead.",
+      "Don't add animations for their own sake. Motion is rare and responsive (button press, filter change, focus)."
+    ]
+  }
+}
