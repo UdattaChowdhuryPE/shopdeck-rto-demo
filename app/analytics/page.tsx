@@ -83,34 +83,38 @@ export default function AnalyticsPage() {
         </div>
 
         <div className="bg-sd-secondary rounded-lg p-6 hover:shadow-[0_8px_24px_rgba(6,182,212,0.15)] transition-shadow duration-200">
-          <h2 className="text-lg font-semibold text-white mb-4">Seller Retention Impact</h2>
+          <h2 className="text-lg font-semibold text-white mb-4">Seller Retention by Group</h2>
+          <p className="text-xs text-[#cbd5e1] mb-4">Retention rates for each seller cohort</p>
           <div className="space-y-6">
             <div>
               <div className="flex justify-between items-center mb-2">
-                <div className="text-sm font-medium text-[#cbd5e1]">Sellers Using Interventions</div>
+                <div className="text-sm font-medium text-[#f1f5f9]">Using Interventions</div>
                 <div className="text-lg font-bold text-risk-green">{(analytics.seller_retention_intervened * 100).toFixed(0)}%</div>
               </div>
-              <div className="w-full bg-sd-darker rounded-full h-3">
+              <div className="w-full bg-sd-darker rounded-full h-4">
                 <div
-                  className="bg-risk-green h-3 rounded-full"
+                  className="bg-risk-green h-4 rounded-full"
                   style={{ width: `${analytics.seller_retention_intervened * 100}%` }}
                 />
               </div>
             </div>
             <div>
               <div className="flex justify-between items-center mb-2">
-                <div className="text-sm font-medium text-[#cbd5e1]">Not Using Interventions</div>
+                <div className="text-sm font-medium text-[#f1f5f9]">Not Using Interventions</div>
                 <div className="text-lg font-bold text-risk-red">{(analytics.seller_retention_non_intervened * 100).toFixed(0)}%</div>
               </div>
-              <div className="w-full bg-sd-darker rounded-full h-3">
+              <div className="w-full bg-sd-darker rounded-full h-4">
                 <div
-                  className="bg-risk-red h-3 rounded-full"
+                  className="bg-risk-red h-4 rounded-full"
                   style={{ width: `${analytics.seller_retention_non_intervened * 100}%` }}
                 />
               </div>
             </div>
-            <div className="text-sm text-[#cbd5e1] pt-4 border-t border-sd-tertiary">
-              Retention Lift: {((analytics.seller_retention_intervened - analytics.seller_retention_non_intervened) * 100).toFixed(0)}%
+            <div className="text-sm text-white pt-4 border-t border-sd-tertiary">
+              <div className="font-semibold text-sd-cyan">
+                Retention Lift: +{((analytics.seller_retention_intervened - analytics.seller_retention_non_intervened) * 100).toFixed(0)} percentage points
+              </div>
+              <div className="text-[#cbd5e1] mt-1 text-xs">Sellers with interventions are {Math.round((analytics.seller_retention_intervened / analytics.seller_retention_non_intervened - 1) * 100)}% more likely to stay</div>
             </div>
           </div>
         </div>
